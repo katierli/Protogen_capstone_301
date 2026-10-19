@@ -1,0 +1,74 @@
+[
+  {
+    "id": "RL.8.1",
+    "code": "RL.8.1",
+    "description": "Cite textual evidence to support analysis of what a text says explicitly and inferentially",
+    "unit": "Unit 1: Foundations of Close Reading"
+  },
+  {
+    "id": "RL.8.2",
+    "code": "RL.8.2",
+    "description": "Determine a theme and analyze its development over the course of a text",
+    "unit": "Unit 1: Foundations of Close Reading"
+  },
+  {
+    "id": "RL.8.3",
+    "code": "RL.8.3",
+    "description": "Analyze how dialogue or incidents propel the action and reveal character, including shifts in point of view",
+    "unit": "Unit 2: Narrative Craft"
+  },
+  {
+    "id": "RL.8.4",
+    "code": "RL.8.4",
+    "description": "Determine the meaning of words and phrases, including figurative and connotative meanings",
+    "unit": "Unit 2: Narrative Craft"
+  },
+  {
+    "id": "RI.8.1",
+    "code": "RI.8.1",
+    "description": "Cite textual evidence to support analysis of informational text",
+    "unit": "Unit 3: Informational Reading"
+  },
+  {
+    "id": "RI.8.2",
+    "code": "RI.8.2",
+    "description": "Determine a central idea and analyze its development, including through objective summary",
+    "unit": "Unit 3: Informational Reading"
+  },
+  {
+    "id": "W.8.1",
+    "code": "W.8.1",
+    "description": "Write arguments to support claims with clear reasons and relevant evidence",
+    "unit": "Unit 4: Argument Writing"
+  },
+  {
+    "id": "W.8.2",
+    "code": "W.8.2",
+    "description": "Write informative/explanatory texts to examine a topic and convey ideas clearly",
+    "unit": "Unit 4: Argument Writing"
+  },
+  {
+    "id": "W.8.9",
+    "code": "W.8.9",
+    "description": "Draw evidence from literary or informational texts to support analysis and research",
+    "unit": "Unit 5: Research & Synthesis"
+  },
+  {
+    "id": "L.8.1",
+    "code": "L.8.1",
+    "description": "Demonstrate command of the conventions of standard English grammar and usage",
+    "unit": "Unit 5: Research & Synthesis"
+  },
+  {
+    "id": "L.8.2",
+    "code": "L.8.2",
+    "description": "Demonstrate command of capitalization, punctuation, and spelling conventions",
+    "unit": "Unit 6: Conventions & Discussion"
+  },
+  {
+    "id": "SL.8.1",
+    "code": "SL.8.1",
+    "description": "Engage effectively in a range of collaborative discussions, building on others' ideas",
+    "unit": "Unit 6: Conventions & Discussion"
+  }
+]

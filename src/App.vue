@@ -1,85 +1,88 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { computed, ref } from 'vue'
+import classroomData from '@/data/classroomData.json'
+import standardsData from '@/data/standards.json'
+import type { Assessment, Period, Standard, Student } from '@/types'
+import AppBar from '@/components/AppBar.vue'
+import PerformanceOverviewWindow from '@/components/PerformanceOverviewWindow.vue'
+import StudentPerformanceTable from '@/components/StudentPerformanceTable.vue'
+import HighRiskStudentsWindow from '@/components/HighRiskStudentsWindow.vue'
+import RecentAssessmentWindow from '@/components/RecentAssessmentWindow.vue'
+import StudentZoomInWindow from '@/components/StudentZoomInWindow.vue'
+
+const students = classroomData.students as Student[]
+const assessments = classroomData.assessments as Assessment[]
+const standards = standardsData as Standard[]
+
+const selectedPeriod = ref<Period | 'All Periods'>('All Periods')
+const selectedStudentId = ref<string | null>(null)
+
+const periodFilteredStudents = computed(() =>
+  selectedPeriod.value === 'All Periods' ? students : students.filter((s) => s.period === selectedPeriod.value),
+)
+
+const selectedStudent = computed(() => students.find((s) => s.id === selectedStudentId.value) ?? null)
+
+function handleSelectStudent(studentId: string) {
+  selectedStudentId.value = studentId
+}
+
+function handleBackToClass() {
+  selectedStudentId.value = null
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <v-app>
+    <AppBar
+      v-model:period="selectedPeriod"
+      v-model:student-id="selectedStudentId"
+      :students="students"
+      teacher-name="Ms. Alvarez"
+      school-year="2025–2026"
+    />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <v-main>
+      <v-container fluid class="py-6 px-4 px-md-8">
+        <StudentZoomInWindow
+          v-if="selectedStudent"
+          :student="selectedStudent"
+          :assessments="assessments"
+          :standards="standards"
+          @back-to-class="handleBackToClass"
+        />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+        <template v-else>
+          <PerformanceOverviewWindow
+            :students="students"
+            :assessments="assessments"
+            :standards="standards"
+            :period="selectedPeriod"
+          />
 
-  <RouterView />
+          <template v-if="selectedPeriod !== 'All Periods'">
+            <StudentPerformanceTable
+              :students="periodFilteredStudents"
+              :assessments="assessments"
+              :standards="standards"
+              :period-label="selectedPeriod"
+            />
+            <HighRiskStudentsWindow
+              :students="periodFilteredStudents"
+              :assessments="assessments"
+              :standards="standards"
+              @select-student="handleSelectStudent"
+            />
+          </template>
+
+          <RecentAssessmentWindow
+            :students="periodFilteredStudents"
+            :assessments="assessments"
+            :standards="standards"
+          />
+        </template>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>

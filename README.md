@@ -1,7 +1,6 @@
-# Snowbird Quick View
+# ELA Classroom Dashboard
 
-This template should help get you started developing with Vue 3 in Vite.
-Includes Vue Router, Vuetify 3 (with Material Design Icons), chart.js and vue-chartjs.
+A multi-view educator dashboard for an English Language Arts classroom, built with Vue 3, TypeScript, Vuetify 3 (with Material Design Icons), and chart.js via vue-chartjs.
 
 ## Recommended IDE Setup
 
