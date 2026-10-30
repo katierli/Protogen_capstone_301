@@ -52,7 +52,7 @@ function sparklinePoints(trend: { average: number }[]) {
         No students currently meet the at-risk thresholds for this period.
       </v-alert>
 
-      <v-table v-else density="comfortable">
+      <v-table v-else density="comfortable" class="table-scroll">
         <thead>
           <tr>
             <th>Student</th>
@@ -89,7 +89,7 @@ function sparklinePoints(trend: { average: number }[]) {
                 <polyline
                   :points="sparklinePoints(flag.trend)"
                   fill="none"
-                  stroke="#1A237E"
+                  stroke="#6A1B9A"
                   stroke-width="2"
                 />
               </svg>
@@ -112,6 +112,12 @@ function sparklinePoints(trend: { average: number }[]) {
 }
 
 .risk-row:hover {
-  background-color: rgba(26, 35, 126, 0.05);
+  background-color: rgba(106, 27, 154, 0.08);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  display: block;
+  width: 100%;
 }
 </style>

@@ -1,7 +1,11 @@
 import './assets/main.css'
-import '@fontsource/roboto/400.css'
-import '@fontsource/roboto/500.css'
-import '@fontsource/roboto/700.css'
+import '@fontsource/plus-jakarta-sans/400.css'
+import '@fontsource/plus-jakarta-sans/500.css'
+import '@fontsource/plus-jakarta-sans/600.css'
+import '@fontsource/plus-jakarta-sans/700.css'
+import '@fontsource/space-grotesk/500.css'
+import '@fontsource/space-grotesk/600.css'
+import '@fontsource/space-grotesk/700.css'
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 
@@ -26,15 +30,35 @@ const vuetify = createVuetify({
       elaLight: {
         dark: false,
         colors: {
-          primary: '#1A237E',
-          secondary: '#00897B',
+          primary: '#6A1B9A',
+          secondary: '#FF6F3C',
+          accent: '#EC008C',
+          info: '#29ABE2',
           success: '#43A047',
           warning: '#FDD835',
           error: '#E53935',
           'on-primary': '#FFFFFF',
           'on-secondary': '#FFFFFF',
+          'on-accent': '#FFFFFF',
           background: '#F5F7FA',
           surface: '#FFFFFF',
+        },
+      },
+      elaDark: {
+        dark: true,
+        colors: {
+          primary: '#C77DFF',
+          secondary: '#FF8A5B',
+          accent: '#FF5FA9',
+          info: '#4FC3F7',
+          success: '#66BB6A',
+          warning: '#FFCA28',
+          error: '#EF5350',
+          'on-primary': '#1A0B2E',
+          'on-secondary': '#1A0B2E',
+          'on-accent': '#1A0B2E',
+          background: '#121212',
+          surface: '#1E1E1E',
         },
       },
     },

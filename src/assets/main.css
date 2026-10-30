@@ -1,5 +1,28 @@
 @import './base.css';
 
+:root {
+  --v-font-body: 'Plus Jakarta Sans', sans-serif;
+  --v-font-heading: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Vuetify 4 dropped the legacy heading/subtitle/caption utility classes,
+   so apply the heading font directly to the title-like elements we use. */
+.v-card-title,
+.v-card-subtitle,
+.v-toolbar-title,
+.text-h5,
+.text-h6,
+.text-subtitle-1,
+.text-subtitle-2,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--v-font-heading);
+}
+
 #app {
   width: 100%;
   font-weight: normal;

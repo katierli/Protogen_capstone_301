@@ -85,7 +85,7 @@ function cellLabel(normalized: number) {
 .heatmap th {
   position: sticky;
   top: 0;
-  background: white;
+  background: rgb(var(--v-theme-surface));
   z-index: 1;
   font-weight: 600;
 }
@@ -93,7 +93,7 @@ function cellLabel(normalized: number) {
 .sticky-col {
   position: sticky;
   left: 0;
-  background: white;
+  background: rgb(var(--v-theme-surface));
   text-align: left;
   z-index: 2;
   font-weight: 500;

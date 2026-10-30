@@ -20,9 +20,9 @@ const { getAssessmentAverage, getMostRecentAssessment, getQuestionStats } = useA
 
 const periods: Period[] = ['Period 1', 'Period 3', 'Period 5']
 const periodColors: Record<Period, string> = {
-  'Period 1': '#1A237E',
-  'Period 3': '#00897B',
-  'Period 5': '#FB8C00',
+  'Period 1': '#6A1B9A',
+  'Period 3': '#29ABE2',
+  'Period 5': '#FF6F3C',
 }
 
 const isAllPeriods = computed(() => props.period === 'All Periods')
@@ -49,10 +49,10 @@ const totalAssessments = computed(() => props.assessments.length)
 const mostRecentDate = computed(() => getMostRecentAssessment(props.assessments)?.date ?? '—')
 
 const statCards = computed(() => [
-  { label: 'Class Average', value: `${classAveragePercent.value}%`, dot: '#1A237E' },
-  { label: 'Standards On Track', value: `${standardsOnTrackPercent.value}%`, dot: '#00897B' },
-  { label: 'Assessments Completed', value: `${totalAssessments.value}`, dot: '#FB8C00' },
-  { label: 'Most Recent Assessment', value: mostRecentDate.value, dot: '#43A047' },
+  { label: 'Class Average', value: `${classAveragePercent.value}%`, dot: '#6A1B9A' },
+  { label: 'Standards On Track', value: `${standardsOnTrackPercent.value}%`, dot: '#29ABE2' },
+  { label: 'Assessments Completed', value: `${totalAssessments.value}`, dot: '#FF6F3C' },
+  { label: 'Most Recent Assessment', value: mostRecentDate.value, dot: '#EC008C' },
 ])
 
 // --- Average Score by Standard chart (both modes) ---
@@ -103,8 +103,8 @@ const trendChartData = computed(() => {
       {
         label: props.period,
         data: sortedAssessments.value.map((a) => Math.round(getAssessmentAverage(a, scopeStudents.value) * 100)),
-        borderColor: '#1A237E',
-        backgroundColor: '#1A237E',
+        borderColor: '#6A1B9A',
+        backgroundColor: '#6A1B9A',
         tension: 0.3,
       },
     ],
